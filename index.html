@@ -2,6 +2,32 @@
 
 <html style="width: 21cm; height: 29.7cm;">
 
+<link rel="stylesheet" href="./auto.js">
+
+<script>
+
+
+    const nomeInput = document.getElementById("remetente");
+    const enderecoInput = document.getElementById("endereco");
+    const cidadeInput = document.getElementById("volumes");
+    const bairroInput = document.getElementById("cidade");
+    const nomeResultado = document.getElementById("remetente-resultado");
+    const enderecoResultado = document.getElementById("endereco-resultado");
+    const cidadeResultado = document.getElementById("volumes-resultado");
+    const bairroResultado = document.getElementById("cidade-resultado");
+    
+    nomeInput.addEventListener("input", function() {
+        nomeResultado.innerHTML = this.value;
+    });
+    enderecoInput.addEventListener("input", function() {
+        enderecoResultado.innerHTML = this.value;
+    });
+    cidadeInput.addEventListener("input", function() {
+        cidadeResultado.innerHTML = this.value;
+    });
+    
+    </script>
+
 <style>
     form {
 
@@ -141,7 +167,7 @@
     <h1>INFORMAÇÕES DA DECLARAÇÃO</h1>
 
     <form>
-        <input style="text-align: center;" type="Vol" name="VOLUMES" value="VOLUMES" readonly><input
+        <input style="text-align: center;" type="Vol" name="VOLUMES" value="VOLUMES" readonly id="volumes"><input
             style="text-align: center;" type="PesoKG" name="PESO" value="PESO Kg" readonly><input
             style="text-align: center;" type="Valor" name="VALOR" value="VALOR R$" readonly><input
             style="text-align: center;" type="Descrição" name="DISCRIMINAÇÃO" value="DISCRIMINAÇÃO" readonly><br>
@@ -157,15 +183,15 @@
 
         <h2>REMETENTE</h2>
 
-        Nome:<input type="text" class="nome" onkeyup="this.value = this.value.toUpperCase();"><label for="cpf"
+        Nome:<input type="text" class="nome" onkeyup="this.value = this.value.toUpperCase();" id="remetente"><label for="cpf"
             class="cpf">CPF:</label>
         <input type="text" id="cpf" onkeyup="this.value = this.value.toUpperCase();">
         <br>
-        Ende:<input type="text" class="end" onkeyup="this.value = this.value.toUpperCase();"><label
+        Ende:<input type="text" class="end" onkeyup="this.value = this.value.toUpperCase();" id="endereço"><label
             for="end">Bairro</label>
         <input type="text" id="bairro" onkeyup="this.value = this.value.toUpperCase();">
         <br>
-        Cidade:<input type="text" class="cid" onkeyup="this.value = this.value.toUpperCase();"><label
+        Cidade:<input type="text" class="cid" onkeyup="this.value = this.value.toUpperCase();" id="cidade"><label
             for="cidade"></label>
         <br>
         Tel:<input type="text" onkeyup="this.value = this.value.toUpperCase();" class="tel"><br>
@@ -190,7 +216,6 @@
     Tel:<input type="text" onkeyup="this.value = this.value.toUpperCase();" class="tel"><br>
 
     <br>
-    <br>
     <hr>
 
 
@@ -210,10 +235,6 @@
         hora.value = dataAtual.toLocaleTimeString();
     </script>
     <br>
-    <br>
-
-
-
     <h3>PAGADOR DE FRETE REMETENTE</h3>
 
 
@@ -222,6 +243,12 @@
         <div class="qrcode"></div>
         <h4>CHAVE PIX</h4>
 
+        <div class="gerar">
+
+            <a href="https://waesteves2.github.io/pate2/"> Gerar Etiqueta</a>
+    
+        </div>
+
 
         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA
         ZAAAAGQCAYAAACAvzbMAAAAAklEQVR4AewaftIAAAyRSURBVO3BgXEcy5I
@@ -229,18 +256,16 @@
             width="100" height="100" alt="">
     </div>
 
-    <div class="gerar">
+    <button onclick="window.print()">Imprimir Declaração</button>
 
-        <a href="./parte2.html"> Gerar Etiqueta</a>
-        
-onClick="window.print()"
 
-<form>
-<input type="button" value="Imprimir esta página" onClick="window.print()"/>
-</form>
-
-    </div>
+    
 
 </body>
 
+
+
+
+
 </html>
+
